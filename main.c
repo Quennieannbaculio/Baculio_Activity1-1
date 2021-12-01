@@ -1,24 +1,23 @@
 #include <stdio.h>
 int main() {
-  char s1[100] = "programming ", s2[] = "is awesome";
-  int length, j;
+  int n;
+  double arr[100];
+  printf("Enter the number of elements (1 to 100): ");
+  scanf("%d", &n);
 
-  // store length of s1 in the length variable
-  length = 0;
-  while (s1[length] != '\0') {
-    ++length;
+  for (int i = 0; i < n; ++i) {
+    printf("Enter number %d: ", i + 1);
+    scanf("%lf", &arr[i]);
   }
 
-  // concatenate s2 to s1
-  for (j = 0; s2[j] != '\0'; ++j, ++length) {
-    s1[length] = s2[j];
+  // storing the largest number to arr[0]
+  for (int i = 1; i < n; ++i) {
+    if (arr[0] < arr[i]) {
+      arr[0] = arr[i];
+    }
   }
 
-  // terminating the s1 string
-  s1[length] = '\0';
-
-  printf("After concatenation: ");
-  puts(s1);
+  printf("\nLargest element = %.2lf\n\n\n", arr[0]);
 
   return 0;
 };
